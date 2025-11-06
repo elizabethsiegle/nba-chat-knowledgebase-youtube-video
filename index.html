@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Basketball Video Agent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #031B4E 0%, #0061EB 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #E5E8ED;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #E5E8ED;
+            opacity: 0.9;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-text {
+            padding: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #E5E8ED;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #E5E8ED;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: #0061EB;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 97, 235, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #004BB8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 97, 235, 0.6);
+        }
+
+        .hero-visual {
+            text-align: center;
+            position: relative;
+        }
+
+        .basketball {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #D4611A, #F07D2B);
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .basketball::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 2px;
+            background: #8B4513;
+            transform: translate(-50%, -50%);
+        }
+
+        .basketball::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            width: 2px;
+            height: 80%;
+            background: #8B4513;
+            transform: translateX(-50%);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #E5E8ED;
+        }
+
+        .feature-card p {
+            color: #E5E8ED;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .chat-section {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+        }
+
+        .chat-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #E5E8ED;
+        }
+
+        .chat-section p {
+            font-size: 1.1rem;
+            color: #E5E8ED;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #E5E8ED;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .basketball {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🏀 NBA Video Agent</div>
+            <div class="subtitle">Your AI-Powered Basketball Video Assistant</div>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>Discover NBA Content Like Never Before</h1>
+                <p>Get instant access to NBA highlights, player stats, game analysis, and personalized video recommendations powered by advanced AI technology.</p>
+                <button class="cta-button" onclick="scrollToChat()">Start Chatting</button>
+            </div>
+            <div class="hero-visual">
+                <div class="basketball"></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <h3>Video Highlights</h3>
+                <p>Find the best NBA highlights, game-winning shots, and incredible plays from your favorite teams and players.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Player Stats</h3>
+                <p>Get detailed statistics, performance analytics, and historical data for all NBA players and teams.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Assistant</h3>
+                <p>Ask questions about games, players, standings, and get intelligent recommendations tailored to your interests.</p>
+            </div>
+        </section>
+
+        <section class="chat-section" id="chat-section">
+            <h2>Ready to Explore the NBA?</h2>
+            <p>Click the chat button below to start your basketball journey. Ask about your favorite teams, players, recent games, or get personalized video recommendations!</p>
+            <div style="margin-top: 20px;">
+                <span style="font-size: 1.2rem; color: #0061EB;">👇 Look for the chat widget in the bottom right corner 👇</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 NBA Video Agent. Bringing you closer to the game you love.</p>
+        </footer>
+    </div>
+
+    <!-- Chat Widget -->
+    <script async
+        src="https://mmax3tps5rmwypr3kb5wnaxf.agents.do-ai.run/static/chatbot/widget.js"
+        data-agent-id="3da8a79c-bb67-11f0-b074-4e013e2ddde4"
+        data-chatbot-id="cL9osDNR09_lPgahtkpx2SEZp7kZ-Qcw"
+        data-name="nba-data-youtube-video Chatbot"
+        data-primary-color="#031B4E"
+        data-secondary-color="#E5E8ED"
+        data-button-background-color="#0061EB"
+        data-starting-message="Hello! How can I help you today?"
+        data-logo="/static/chatbot/icons/default-agent.svg">
+    </script>
+
+    <script>
+        function scrollToChat() {
+            document.getElementById('chat-section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>
