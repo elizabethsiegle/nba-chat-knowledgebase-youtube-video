@@ -2,6 +2,8 @@
 
 A simple NBA-themed AI agent using DigitalOcean's AI chat agent widget. This basic web app serves a static HTML page with basketball styling and an embedded chatbot interface.
 
+![image](nbaagentscreenshot.png)
+
 The data is pulled and indexed from nba.com/stats daily and auto-added to our agent's knowledge base.
 
 ## Features
